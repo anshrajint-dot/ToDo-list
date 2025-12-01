@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import tasksRoutes from "./routes/tasksRoutes.js";
+import subjectsRoutes from "./routes/subjectsRoutes.js"; // ✅ ADDED
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ connectDB();
 
 // Routes
 app.use("/api/tasks", tasksRoutes);
+app.use("/api/subjects", subjectsRoutes); // ✅ ADDED
 
 app.get("/", (req, res) => {
   res.send("API Running");

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";   // ✅ Add this
 
 export default function ViewTask() {
   const [tasks, setTasks] = useState([]);
@@ -28,8 +29,8 @@ export default function ViewTask() {
             <h3>{t.task}</h3>
             <p>{t.desc}</p>
 
-            <p><b>Email:</b> {t.email}</p>
-            <p><b>Phone:</b> {t.phone}</p>
+            <p><b>Time:</b> {t.Time}</p>
+            <p><b>Break:</b> {t.Break}</p>
 
             <div style={{ marginTop: "10px" }}>
               <label>
@@ -45,6 +46,23 @@ export default function ViewTask() {
             {t.completed && (
               <p style={{ color: "green", fontWeight: "bold" }}>✔ Completed</p>
             )}
+
+            {/* ✅ EDIT BUTTON */}
+            <Link 
+              to={`/edit-task/${t._id}`}
+              style={{
+                marginTop: "10px",
+                display: "inline-block",
+                background: "#007bff",
+                color: "white",
+                padding: "8px 12px",
+                borderRadius: "8px",
+                textDecoration: "none"
+              }}
+            >
+              ✏ Edit Task
+            </Link>
+
           </div>
         ))}
       </div>

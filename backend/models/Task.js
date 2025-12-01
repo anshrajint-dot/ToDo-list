@@ -3,8 +3,8 @@ import mongoose from "mongoose";
 const taskSchema = new mongoose.Schema({
   task: String,
   desc: String,
-  email: String,
-  phone: String,
+    Time: String,    // ✅ added
+  Break: String,   // ✅ added
   completed: { type: Boolean, default: false }
 });
 
